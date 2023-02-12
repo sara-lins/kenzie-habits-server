@@ -12,36 +12,60 @@ Endpoint API:
 
 Documentation:
 
-## Instalação dos pacotes (Installation of packages)
+## Instalação dos pacotes de teste
 
-- Crie seu ambiente virtual (Create your virtual environment):
+- Verifique se os pacotes `pytest` e/ou `pytest-testdox` estão instalados globalmente em seu sistema:
+
+```shell
+pip list
+```
+
+- Caso seja listado o `pytest` e/ou `pytest-testdox` e/ou `pytest-django` em seu ambiente global, utilize os seguintes comando para desinstalá-los globalmente:
+
+```shell
+pip uninstall pytest
+```
+
+```shell
+pip uninstall pytest-testdox
+```
+
+```shell
+pip uninstall pytest-django
+```
+
+A partir disso, prossiga com os passos:
+
+1. Crie seu ambiente virtual:
 
 ```bash
-    python -m venv venv
+python -m venv venv
 ```
 
-- Ative a máquina virtual (Activate the virtual machine):
+2. Ative seu venv:
 
-```shell
-    source venv/bin/activate
+```bash
+# linux:
+source venv/bin/activate
+
+# windows:
+.\venv\Scripts\activate
 ```
 
-- Rode o comando para instalar os pacotes que estão no arquivo requirements.txt (Run the command to install the packages that are in the requirements.txt file):
+3. Instale o pacote `pytest-testdox`:
 
 ```shell
-    pip install -r requirements.txt
+pip install pytest-testdox pytest-django
 ```
 
-## Testes (Tests):
-
-- Rode os testes no diretório principal do projeto (Run the tests in the main project directory):
+4. Agora é só rodar os testes no diretório principal do projeto:
 
 ```shell
-    pytest --testdox -vvs
+pytest --testdox -vvs
 ```
 
-- Caso queira um log mais resumido, basta executar com os testes sem as flags **verbose** (If you want a more summarized log, just run with the tests without the flags **verbose**):
+5. Caso queira um log mais resumido, basta executar com os testes sem as flags **verbose**:
 
 ```shell
-    pytest --testdox
+pytest --testdox
 ```
