@@ -36,14 +36,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-4. Agora é só rodar os testes no diretório principal do projeto:
+1. Agora é só rodar o servidor:
 
 ```shell
-pytest --testdox -vvs
-```
-
-5. Caso queira um log mais resumido, basta executar com os testes sem as flags **verbose**:
-
-```shell
-pytest --testdox
+python manage.py runserver
 ```
