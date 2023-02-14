@@ -126,7 +126,7 @@ if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
-# Database
+# Database postgres
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
