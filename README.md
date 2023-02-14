@@ -10,7 +10,7 @@ Tecnologias (technologies): Python, Django REST Framework, UUID, PostgreSQL.
 
 Endpoint API: https://kenzie-habits-server.onrender.com/api/task/
 
-Documentation: https://kenzie-habits-server.onrender.com/api/docs/redoc/
+Doc: https://kenzie-habits-server.onrender.com/api/docs/redoc/
 
 ## Iniciando o projeto localmente
 
