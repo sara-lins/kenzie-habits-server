@@ -109,23 +109,25 @@ TEMPLATES = [
 WSGI_APPLICATION = '_core.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+#import do deploy
+from django.core.management.utils import get_random_secret_key
+import dj_database_url
 
+#imports do database
 import os
 import dotenv
-import dj_database_url
-from django.core.management.utils import get_random_secret_key
+
+dotenv.load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY", get_random_secret_key())
 
 RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
-dotenv.load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-DATABASE_URL = os.getenv('DATABASE_URL')
-SECRET_KEY = os.getenv("SECRET_KEY", get_random_secret_key())
+# Database
+# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
   "default": {
@@ -137,6 +139,8 @@ DATABASES = {
       "PORT": 5432,
   }
 }
+
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 if DATABASE_URL:
     db_from_env = dj_database_url.config(
