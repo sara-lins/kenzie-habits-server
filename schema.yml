@@ -1,0 +1,350 @@
+openapi: 3.0.3
+info:
+  title: Kenzie Habits Server
+  version: 1.0.0
+  description: Server designed for To-do list application
+paths:
+  /api/task/:
+    get:
+      operationId: task_list
+      tags:
+        - task
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Task"
+          description: ""
+    post:
+      operationId: task_create
+      tags:
+        - task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Task"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/Task"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/Task"
+        required: true
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task"
+          description: ""
+  /api/task/{id}/:
+    get:
+      operationId: task_retrieve
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+          description: A UUID string identifying this task.
+          required: true
+      tags:
+        - task
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task"
+          description: ""
+    put:
+      operationId: task_update
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+          description: A UUID string identifying this task.
+          required: true
+      tags:
+        - task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Task"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/Task"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/Task"
+        required: true
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task"
+          description: ""
+    patch:
+      operationId: task_partial_update
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+          description: A UUID string identifying this task.
+          required: true
+      tags:
+        - task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatchedTask"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/PatchedTask"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/PatchedTask"
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task"
+          description: ""
+    delete:
+      operationId: task_destroy
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+          description: A UUID string identifying this task.
+          required: true
+      tags:
+        - task
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "204":
+          description: No response body
+  /api/task/check/{id}/:
+    put:
+      operationId: task_check_update
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+          description: A UUID string identifying this task.
+          required: true
+      tags:
+        - task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TaskCheck"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/TaskCheck"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/TaskCheck"
+        required: true
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskCheck"
+          description: ""
+    patch:
+      operationId: task_check_partial_update
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+          description: A UUID string identifying this task.
+          required: true
+      tags:
+        - task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatchedTaskCheck"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/PatchedTaskCheck"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/PatchedTaskCheck"
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskCheck"
+          description: ""
+components:
+  schemas:
+    PatchedTask:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        title:
+          type: string
+          maxLength: 80
+        tag:
+          type: string
+          maxLength: 18
+        is_active:
+          type: boolean
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedTaskCheck:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        title:
+          type: string
+          maxLength: 80
+        tag:
+          type: string
+          maxLength: 18
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        title:
+          type: string
+          maxLength: 80
+        tag:
+          type: string
+          maxLength: 18
+        is_active:
+          type: boolean
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+        - created_at
+        - id
+        - is_active
+        - tag
+        - title
+        - updated_at
+    TaskCheck:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        title:
+          type: string
+          maxLength: 80
+        tag:
+          type: string
+          maxLength: 18
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+        - created_at
+        - id
+        - tag
+        - title
+        - updated_at
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
