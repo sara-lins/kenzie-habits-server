@@ -12,29 +12,7 @@ Endpoint API:
 
 Documentation:
 
-## Instalação dos pacotes de teste
-
-- Verifique se os pacotes `pytest` e/ou `pytest-testdox` estão instalados globalmente em seu sistema:
-
-```shell
-pip list
-```
-
-- Caso seja listado o `pytest` e/ou `pytest-testdox` e/ou `pytest-django` em seu ambiente global, utilize os seguintes comando para desinstalá-los globalmente:
-
-```shell
-pip uninstall pytest
-```
-
-```shell
-pip uninstall pytest-testdox
-```
-
-```shell
-pip uninstall pytest-django
-```
-
-A partir disso, prossiga com os passos:
+## Iniciando o projeto localmente
 
 1. Crie seu ambiente virtual:
 
@@ -52,10 +30,10 @@ source venv/bin/activate
 .\venv\Scripts\activate
 ```
 
-3. Instale o pacote `pytest-testdox`:
+3. Instale os pacotes:
 
 ```shell
-pip install pytest-testdox pytest-django
+pip install -r requirements.txt
 ```
 
 4. Agora é só rodar os testes no diretório principal do projeto:
