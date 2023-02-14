@@ -20,18 +20,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-from django.core.management.utils import get_random_secret_key
+
 SECRET_KEY = 'django-insecure-!8g8fry&ux#xi4tdyi0ib#q3@s6mw$*_m_xdyzap_n%#u88jz2'
-SECRET_KEY = os.getenv("SECRET_KEY", get_random_secret_key())
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 
 # Application definition
 
@@ -117,11 +115,17 @@ WSGI_APPLICATION = '_core.wsgi.application'
 import os
 import dotenv
 import dj_database_url
+from django.core.management.utils import get_random_secret_key
+
+RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 dotenv.load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 DATABASE_URL = os.getenv('DATABASE_URL')
+SECRET_KEY = os.getenv("SECRET_KEY", get_random_secret_key())
 
 DATABASES = {
   "default": {
