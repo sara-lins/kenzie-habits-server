@@ -6,6 +6,15 @@ _<p align="center" >Servidor elaborado para aplicação To-do list, com CRUD de 
 
 _<p align="center" >Server designed for To-do list application, with tasks CRUD linked to Database Postgres.</p>_
 
+### Features
+
+- [x] List All task
+- [x] List task by ID
+- [x] Create task
+- [x] Update task
+- [x] Delete task
+- [x] Update Check task
+
 ## Tecnologias (technologies): 
 - Python
 - Django REST Framework
