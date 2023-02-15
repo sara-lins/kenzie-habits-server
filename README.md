@@ -8,9 +8,9 @@ Server designed for To-do list application, with tasks CRUD linked to Database P
 
 Tecnologias (technologies): Python, Django REST Framework, UUID, PostgreSQL.
 
-Endpoint API:
+Endpoint API: https://kenzie-habits-server.onrender.com/api/task/
 
-Documentation:
+Doc: https://kenzie-habits-server.onrender.com/api/docs/redoc/
 
 ## Iniciando o projeto localmente
 
