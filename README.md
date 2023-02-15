@@ -1,43 +1,38 @@
-# Kenzie Habits Server
+**<h1 align="center" >Kenzie Habits Server</h1>**
 
-## Descrição do projeto (Project description)
+**<h1 align="center" >Descrição do projeto (Project description)</h1>**
 
-Servidor elaborado para aplicação To-do list, com CRUD de tasks ligado ao Database Postgres.
+_<p align="center" >Servidor elaborado para aplicação To-do list, com CRUD de tasks ligado ao Database Postgres.</p>_
 
-Server designed for To-do list application, with tasks CRUD linked to Database Postgres.
+_<p align="center" >Server designed for To-do list application, with tasks CRUD linked to Database Postgres.</p>_
 
-Tecnologias (technologies): Python, Django REST Framework, UUID, PostgreSQL.
+## Tecnologias (technologies): 
+- Python
+- Django REST Framework
+- UUID
+- PostgreSQL
 
-Endpoint API: https://kenzie-habits-server.onrender.com/api/task/
+API: [Kenzie Habits Server](https://kenzie-habits-server.onrender.com/api/task/)
 
-Doc: https://kenzie-habits-server.onrender.com/api/docs/redoc/
+Doc: [Kenzie Habits Doc](https://kenzie-habits-server.onrender.com/api/docs/redoc/)
 
-## Iniciando o projeto localmente
-
-1. Crie seu ambiente virtual:
-
-```bash
-python -m venv venv
-```
-
-2. Ative seu venv:
+## Iniciando o projeto localmente 
 
 ```bash
+# Crie seu ambiente virtual:Crie seu ambiente virtual:
+> python -m venv venv
+
+# Ative seu venv:
 # linux:
-source venv/bin/activate
+> source venv/bin/activate
 
 # windows:
-.\venv\Scripts\activate
-```
+> .\venv\Scripts\activate
 
-3. Instale os pacotes:
+# Instale os pacotes:
+> pip install -r requirements.txt
 
-```shell
-pip install -r requirements.txt
-```
+#Agora é só rodar o servidor:
+> python manage.py runserver
 
-1. Agora é só rodar o servidor:
-
-```shell
-python manage.py runserver
 ```
