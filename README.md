@@ -8,7 +8,7 @@ _<p align="center" >Server designed for To-do list application, with tasks CRUD 
 
 ### Features
 
-- [x] List All task
+- [x] List All tasks
 - [x] List task by ID
 - [x] Create task
 - [x] Update task
